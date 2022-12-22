@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Homepage";
+// import CharacterPage from "./pages/CharacterPage";
+import { Navbar } from "./components/NavigationBar/NavigationBar";
+import { NavLink, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Navbar />
+        <h1> The Sorting Hat App</h1>
+        <Routes>
+          {/* more pages to be added here later */}
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/characters" element={<CharacterPage />} /> */}
+        </Routes>
+      </div>
     </div>
   );
 }
