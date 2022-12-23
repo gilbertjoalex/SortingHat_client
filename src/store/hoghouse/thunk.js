@@ -17,6 +17,6 @@ import { reduceAllHouses } from "./slice";
 
 export const allHogwartsHouses = () => async (dispatch, getState) => {
   const response = await axios.get("http://localhost:4000/hogwarts");
-  console.log(response, "This is my ALL response");
+  // console.log(response, "This is my ALL response");
   dispatch(reduceAllHouses(response.data));
 };

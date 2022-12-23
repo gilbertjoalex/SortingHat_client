@@ -13,6 +13,7 @@ const HomePage = () => {
   const hogwarthouses = useSelector(selectAllHogwartHouses);
   // const profile = useSelector(selectProfile);
   // const user = useSelector(selectUser);
+  console.log(hogwarthouses, "YIPPPEE");
 
   //Testing
   // console.log(artwork); // SUCCESSFUL REDUX STATE SELECTION/FORCING ON ARTWORKPAGE -- ALL ARTWORKS
@@ -25,9 +26,8 @@ const HomePage = () => {
 
   return (
     <div>
-      <h2> Hogwarts Houses</h2>
       <SortingHat />
-
+      <h2> Hogwarts Houses</h2>
       {hogwarthouses &&
         hogwarthouses.map((hog) => {
           return (
@@ -36,7 +36,7 @@ const HomePage = () => {
               id={hog.id}
               name={hog.name}
               founder={hog.founder}
-              member={hog.member}
+              members={hog.members}
               symbol={hog.symbol}
             />
           );

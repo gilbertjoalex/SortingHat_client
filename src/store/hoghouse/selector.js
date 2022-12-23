@@ -1,1 +1,2 @@
-export const selectAllHogwartHouses = (reduxState) => reduxState.hogHouses;
+export const selectAllHogwartHouses = (reduxState) =>
+  reduxState.hoghouses.houses;

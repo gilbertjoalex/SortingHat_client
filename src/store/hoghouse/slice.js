@@ -7,7 +7,8 @@ export const hogHouseSlice = createSlice({
   reducers: {
     reduceAllHouses: (state, action) => {
       console.log(action, "This is my action"); //TEST 2. Create action and see if this shows up. Go back to thunk.
-      state.artworks = action.payload; // STEP 3 - CREATE REDUX STATE - the console.logged action will describe what is the type and payload of the state. CREATE SELECTOR
+      state.houses = action.payload;
+      console.log(action.payload, "action payys"); // STEP 3 - CREATE REDUX STATE - the console.logged action will describe what is the type and payload of the state. CREATE SELECTOR
     },
 
     // addBid: (state, action) => {

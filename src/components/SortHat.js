@@ -5,6 +5,7 @@ import { NavLink, Link } from "react-router-dom";
 export default function SortingHat(props) {
   const [isShown, setIsShown] = useState(false);
   const [attribute, setAttribute] = useState("Select an attribute");
+  console.log(attribute, "this is house based on attribute");
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
@@ -19,14 +20,14 @@ export default function SortingHat(props) {
     { label: "Wise", value: "Ravenclaw" },
     { label: "Best", value: "Slytherin" },
   ];
+  console.log(houses.value);
   return (
     <div className="sortinghat">
-      <h3>Sorting Hat</h3>
+      <h2>Sorting Hat</h2>
       <button onClick={handleClick}>What describes you most? </button>
       {isShown && (
         <div>
           <h4>Attributes </h4>
-          {attribute}
 
           <select onChange={handleAttributeChange}>
             <option value="Select an attribute">
@@ -34,21 +35,25 @@ export default function SortingHat(props) {
               -- Select your defining attribute --{" "}
             </option>
             {houses.map((house) => (
-              <option value={""}>{house.label}</option>
+              <option value={house.value}>{house.label}</option>
             ))}
           </select>
           <button
             onClick={() => {
-              if (handleAttributeChange === attribute[0]) {
+              if (attribute === "Gryffindor") {
+                return <h2> You are Gryffindor</h2>;
               }
               // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
               if (handleAttributeChange === attribute[1]) {
+                return <h1> You are Hufflepuff!</h1>;
               }
               // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
               if (handleAttributeChange === attribute[2]) {
+                return <h1> You are Ravenclaw!</h1>;
               }
               // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
               if (handleAttributeChange === attribute[3]) {
+                return <h1> You are Slytherin!</h1>;
               } else {
                 console.log(attribute, "-------");
               }
@@ -57,12 +62,7 @@ export default function SortingHat(props) {
             {" "}
             Let the Sorting begin!
           </button>
-          {/* <p>
-            {houses &&
-              houses.map((house) => {
-                return <p> You have selected: {house.value} </p>;
-              })}
-          </p> */}
+
           <p></p>
         </div>
       )}
@@ -77,9 +77,9 @@ export default function SortingHat(props) {
             //   <option value="Wize">Wize</option>{" "}
             //   <option value="First">First</option>
             // </select>
-        //   </div> */
+        //   </h1> */
 }
 
-// </div>
+// </h1>
 //   )}
-// </div>
+// </h1>
