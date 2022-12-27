@@ -1,26 +1,34 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAllHogwartHouses } from "../store/hoghouse/selector";
 
 export default function SortingHat(props) {
+  const dispatch = useDispatch();
   const [isShown, setIsShown] = useState(false);
   const [attribute, setAttribute] = useState("Select an attribute");
-  console.log(attribute, "this is house based on attribute");
+  const hogwarthouses = useSelector(selectAllHogwartHouses);
+
+  const firstSort = () => {
+    return Math.floor(Math.random() * 7) + 3;
+  };
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
   const handleAttributeChange = (e) => {
     setAttribute(e.target.value);
+    console.log(e.target.value);
   };
 
-  let houses = [
-    { label: "Brave", value: "Gryffindor" },
-    { label: "Patient", value: "Hufflepuff" },
-    { label: "Wise", value: "Ravenclaw" },
-    { label: "Best", value: "Slytherin" },
-  ];
-  console.log(houses.value);
+  // let houses = [
+  //   { label: "Brave", value: "Gryffindor" },
+  //   { label: "Patient", value: "Hufflepuff" },
+  //   { label: "Wise", value: "Ravenclaw" },
+  //   { label: "Best", value: "Slytherin" },
+  // ];
+
   return (
     <div className="sortinghat">
       <h2>Sorting Hat</h2>
@@ -34,29 +42,36 @@ export default function SortingHat(props) {
               {" "}
               -- Select your defining attribute --{" "}
             </option>
-            {houses.map((house) => (
-              <option value={house.value}>{house.label}</option>
+            {hogwarthouses.map((house) => (
+              <option value={house.name}>{house.attribute}</option>
             ))}
           </select>
+
+          <button onClick={firstSort}> Random Test</button>
           <button
             onClick={() => {
-              if (attribute === "Gryffindor") {
-                return <h2> You are Gryffindor</h2>;
+              try {
+              } catch (e) {
+                console.log(attribute, "this is the Basic sorted House");
               }
-              // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
-              if (handleAttributeChange === attribute[1]) {
-                return <h1> You are Hufflepuff!</h1>;
-              }
-              // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
-              if (handleAttributeChange === attribute[2]) {
-                return <h1> You are Ravenclaw!</h1>;
-              }
-              // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
-              if (handleAttributeChange === attribute[3]) {
-                return <h1> You are Slytherin!</h1>;
-              } else {
-                console.log(attribute, "-------");
-              }
+
+              // if (attribute === "Gryffindor") {
+              //   return <h2> You are Gryffindor</h2>;
+              // }
+              // // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
+              // if (handleAttributeChange === attribute[1]) {
+              //   return <h1> You are Hufflepuff!</h1>;
+              // }
+              // // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
+              // if (handleAttributeChange === attribute[2]) {
+              //   return <h1> You are Ravenclaw!</h1>;
+              // }
+              // // dispatch(postBid(amount, id)); // GIJSBERT REFORMED
+              // if (handleAttributeChange === attribute[3]) {
+              //   return <h1> You are Slytherin!</h1>;
+              // } else {
+              //   console.log(attribute, "-------");
+              // }
             }}
           >
             {" "}

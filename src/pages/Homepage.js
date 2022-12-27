@@ -38,6 +38,9 @@ const HomePage = () => {
               founder={hog.founder}
               members={hog.members}
               symbol={hog.symbol}
+              description={hog.description}
+              attribute={hog.attribute}
+              wolf={hog.wolf}
             />
           );
         })}
