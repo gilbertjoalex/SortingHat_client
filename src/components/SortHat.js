@@ -10,16 +10,15 @@ export default function SortingHat(props) {
   const [attribute, setAttribute] = useState("Select an attribute");
   const hogwarthouses = useSelector(selectAllHogwartHouses);
 
-  const firstSort = () => {
-    return Math.floor(Math.random() * 7) + 3;
-  };
-
   const handleClick = (event) => {
     setIsShown((current) => !current);
   };
   const handleAttributeChange = (e) => {
     setAttribute(e.target.value);
     console.log(e.target.value);
+  };
+  const firstSort = () => {
+    console.log(Math.floor(Math.random() * 7) + 3);
   };
 
   // let houses = [
@@ -33,6 +32,7 @@ export default function SortingHat(props) {
     <div className="sortinghat">
       <h2>Sorting Hat</h2>
       <button onClick={handleClick}>What describes you most? </button>
+      <button onClick={firstSort}> Random Test</button>
       {isShown && (
         <div>
           <h4>Attributes </h4>
@@ -47,10 +47,10 @@ export default function SortingHat(props) {
             ))}
           </select>
 
-          <button onClick={firstSort}> Random Test</button>
           <button
             onClick={() => {
               try {
+                if (attribute) firstSort();
               } catch (e) {
                 console.log(attribute, "this is the Basic sorted House");
               }
